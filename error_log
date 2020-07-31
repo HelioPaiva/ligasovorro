@@ -1,0 +1,35 @@
+[19-Jul-2020 12:46:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home2/mustec08/public_html/cartola/database.php:34
+Stack trace:
+#0 /home2/mustec08/public_html/cartola/database.php(49): find('select consolid...')
+#1 /home2/mustec08/public_html/cartola/functions-cadastro.php(121): find_all('select consolid...')
+#2 /home2/mustec08/public_html/cartola/index.php(3): index()
+#3 {main}
+  thrown in /home2/mustec08/public_html/cartola/database.php on line 34
+[19-Jul-2020 12:49:24 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch_all() in /home2/mustec08/public_html/cartola/database.php:36
+Stack trace:
+#0 /home2/mustec08/public_html/cartola/database.php(49): find('SELECT j.rodada...')
+#1 /home2/mustec08/public_html/cartola/functions-jogos.php(46): find_all('SELECT j.rodada...')
+#2 /home2/mustec08/public_html/cartola/jogos.php(3): index()
+#3 {main}
+  thrown in /home2/mustec08/public_html/cartola/database.php on line 36
+[19-Jul-2020 12:51:30 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch_all() in /home2/mustec08/public_html/cartola/database.php:36
+Stack trace:
+#0 /home2/mustec08/public_html/cartola/database.php(49): find('select consolid...')
+#1 /home2/mustec08/public_html/cartola/functions-cadastro.php(121): find_all('select consolid...')
+#2 /home2/mustec08/public_html/cartola/index.php(3): index()
+#3 {main}
+  thrown in /home2/mustec08/public_html/cartola/database.php on line 36
+[19-Jul-2020 12:54:38 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch_all() in /home2/mustec08/public_html/cartola/database.php:36
+Stack trace:
+#0 /home2/mustec08/public_html/cartola/database.php(49): find('select consolid...')
+#1 /home2/mustec08/public_html/cartola/functions-cadastro.php(121): find_all('select consolid...')
+#2 /home2/mustec08/public_html/cartola/index.php(3): index()
+#3 {main}
+  thrown in /home2/mustec08/public_html/cartola/database.php on line 36
+[19-Jul-2020 12:56:28 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to undefined method mysqli_result::fetch_all() in /home2/mustec08/public_html/cartola/database.php:36
+Stack trace:
+#0 /home2/mustec08/public_html/cartola/database.php(49): find('SELECT j.rodada...')
+#1 /home2/mustec08/public_html/cartola/functions-jogos.php(46): find_all('SELECT j.rodada...')
+#2 /home2/mustec08/public_html/cartola/jogos.php(3): index()
+#3 {main}
+  thrown in /home2/mustec08/public_html/cartola/database.php on line 36

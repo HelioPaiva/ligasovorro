@@ -1,0 +1,89 @@
+
+            #menu{
+                /*background-color:#EE7600;
+                color:black;*/
+            }
+            th{
+                background-color:#A52A2A;  
+                font-size: 10px;
+                font-weight: bold;  
+                vertical-align: middle;
+                text-align: center;
+            }
+            p{
+                color: white;
+            }
+            td{
+                vertical-align: middle;
+                text-align: center;
+            }
+
+            #img{
+                width:50px;
+                height:50px;
+                margin: 0 auto;
+                /*margin-top:10px;*/
+                /*margin-left:40px;*/
+            }
+            #img_estrela{
+                width:12px;
+                height:12px;
+                margin: 0 auto;
+                /*margin-top:10px;*/
+                /*margin-left:40px;*/
+            }
+
+            #linha {
+                background-color:#FFFFFF;
+                margin-top:0px;
+                -moz-border-radius:7px;
+                -webkit-border-radius:7px;
+                border-radius:7px;
+            }
+            #posicao{
+                font-size: 11px;
+                line-height:35px;
+                font-weight: bold;
+                width: 3px; 
+            }
+            #time{
+                font-size: 9px;
+                width: 50px;
+                font-weight: bold;
+            }
+            #cartola{
+                font-size: 9px;
+                width: 50px;
+                font-weight: bold;
+            }
+            #pontos{
+                font-size: 12px;
+                line-height:50px;
+                font-weight: bold;
+                width: 50px;
+            }
+            #pro{
+                font-size: 10px;
+                line-height:50px;
+                font-weight: bold;
+                width: 60px;
+            }
+            #contra{
+                font-size: 10px;
+                line-height:50px;
+                font-weight: bold;
+                width: 60px;
+            }
+            #aproveitamento{
+                font-size: 10px;
+                line-height:50px;
+                font-weight: bold;
+                width: 60px;
+            }
+            label{
+                font-size: 18px;
+                align-items: center;
+                font-weight: bold;
+                width: 900px;
+                line-height:50px;
+            }

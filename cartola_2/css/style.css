@@ -1,0 +1,119 @@
+
+
+
+
+  /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+
+    #jogador{
+     background-color: #fff;
+      box-shadow: 5px 5px 0 #ddd;
+     -webkit-box-shadow: 5px 5px 0 #ddd;
+     -moz-box-shadow: 5px 5px 0 #ddd;
+
+     -moz-border-radius:7px;
+     -webkit-border-radius:7px;
+      border-radius:7px;
+
+      position: relative;
+    }
+    #posicao{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      /*position: relative;*/
+      margin-top: -100px;
+      margin-left: 5px;
+      position: relative;
+    }
+    #escudo{
+      width: 35px;
+      height: 35px;
+      position: relative;
+      margin-top: -10px;
+      margin-left: 15px;
+      position: relative;
+    }
+    #foto{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-top: -21px;
+      margin-left: 25px;
+      position: relative;
+    }
+    #time{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      /*position: relative;*/
+      margin-top: -70px;
+      margin-left: 100px;
+      position: relative;
+    }
+    #pontos{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      /*position: relative;*/
+      margin-top: -50px;
+      margin-left: 200px;
+      position: relative;
+    }
+    #pontos_num{
+      font-size: 14px;
+      margin-top: -70px;
+      margin-left: 10px;       
+    }
+    #pontos_pro{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      /*position: relative;*/
+      margin-top: -50px;
+      margin-left: 270px;
+      position: relative;
+    }
+    #pontos_pro_num{
+      font-size: 12px;
+      margin-top: -50px;
+      margin-left: 2px;
+      position: relative;
+    }
+
+    #pontos_contra{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      /*position: relative;*/
+      font-size: 12px;
+      margin-top: -5px;
+      margin-left: 100px;
+      position: relative;
+    }
+    #pontos_contra_num{
+      font-size: 12px;
+      margin-top: -60px;
+      margin-left: 2px;
+      position: relative;
+    }
+    #qtd{
+      /*position: absolute;*/
+      /*border: 2px solid #fff;*/
+      /*position: relative;*/
+      margin-top: -40px;
+      margin-left: 200px;
+      position: relative;
+    }
+    #pontos_qtd_num{
+      font-size: 12px;
+      margin-top: -50px;
+      margin-left: 10px;
+      position: relative;
+    }
+    #oito{
+      color: #00BFFF;
+    }
+    
