@@ -51,7 +51,10 @@ index();
                 <?php echo $jogo['time_casa']; ?></br>
                 <b style="color: #32CD32"><?php echo $jogo['pontos_casa'];?></b>
               </td>
-              <td style="text-align: center;vertical-align: middle;">x</td>
+              <td style="text-align: center;vertical-align: middle;">
+                x</br></br>
+                <a href="parciais.php?id=<?php echo $jogo['id_jogo'];?>" class="btn btn-default">ver escalações</a>
+              </td>
               <td style="text-align: center;">
                <img src="<?php echo $jogo['escudo_visitante']; ?>"  style="width: 40px; height: 40px;"></br>
                <?php echo $jogo['time_visitante'] ?></br>

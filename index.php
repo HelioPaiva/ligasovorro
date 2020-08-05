@@ -55,7 +55,6 @@ $pontosTotal = $rodada * 3
                  <img src="<?php echo $cadastro['url_escudo_svg']; ?>" style="width: 40px; height: 40px;">
                </div>
                <div style="text-align: center;vertical-align: middle; margin-top: -30px; margin-left: 35px; position: relative;">
-                <?php //echo $cadastro['facebook_id']; ?>
                 <img style="border-radius: 50%;width: 30px; height: 30px;" id="foto" 
                 src="
                 <?php
@@ -72,8 +71,8 @@ $pontosTotal = $rodada * 3
                </div>
              </td>
              <td style="text-align:	center;vertical-align: middle; font-weight: bold; font-size: 16px"><?php echo $cadastro['pontos'];  ?></td>
-             <td style="text-align: center;vertical-align: middle;"><?php echo  $cadastro['pontos_pro'] ;?></td>
-             <td style="text-align: center;vertical-align: middle;"><?php echo $cadastro['contra'] ;?></td>
+             <td style="text-align: center;vertical-align: middle;"><?php if(is_null($cadastro['pontos_pro']) ==true){echo '0.00';}else{echo $cadastro['pontos_pro'];};?></td>
+             <td style="text-align: center;vertical-align: middle;"><?php if(is_null($cadastro['contra']) == true){echo '0.00';}else{echo $cadastro['contra'];};?></td>
              <!--<td style="text-align: center;vertical-align: middle;">20.00</td>-->
            </tr>
            <?php $r = $r + 1; ?>

@@ -10,6 +10,7 @@ function open_database() {
     return null;
   }
 }
+
 function close_database($conn) {
 	try {
 		mysqli_close($conn);
@@ -17,6 +18,31 @@ function close_database($conn) {
 		echo $e->getMessage();
 	}
 }
+
+function add($sql) {
+  $database = open_database();
+  try {
+    $database->query($sql);
+  } catch (Exception $e) { 
+    $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
+    $_SESSION['type'] = 'danger';
+  } 
+  close_database($database);
+}
+
+
+
+
+/********************************************************************************************/
+
+
+
+
+
+
+
+
+
 /**
  *  Pesquisa um Registro pelo ID em uma Tabela
  */
@@ -73,17 +99,6 @@ function save($table = null, $data = null) {
   
   $sql = "INSERT INTO " . $table . "($columns)" . " VALUES " . "($values);";
 
-  try {
-    $database->query($sql);
-  } catch (Exception $e) { 
-    $_SESSION['message'] = 'Nao foi possivel realizar a operacao.';
-    $_SESSION['type'] = 'danger';
-  } 
-  close_database($database);
-}
-
-function mercado($sql) {
-  $database = open_database();
   try {
     $database->query($sql);
   } catch (Exception $e) { 

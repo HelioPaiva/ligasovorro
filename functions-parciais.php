@@ -8,40 +8,17 @@ $jogo = null;
 //seleciona todos os registros
 function index() {
   global $jogos;
-  $sql = "SELECT j.id_jogo
-  ,j.rodada
-  ,j.time_casa
-  ,j.time_visitante
-  ,pc.pontos                                    as pontos_casa
-  ,pv.pontos                                    as pontos_visitante
-  ,case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos > pv.pontos then j.time_casa 
-  when pc.pontos = pv.pontos then 'Empate' else j.time_visitante end        as vencedor
-  ,case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos < pv.pontos then j.time_casa 
-  when pc.pontos = pv.pontos then 'Empate' else j.time_visitante end        as perdedor
-  ,case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos > pv.pontos then pc.pontos else pv.pontos end                as pontos_vencedor
-  ,case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos < pv.pontos then pc.pontos else pv.pontos end          as pontos_perdedor
-  ,cc.url_escudo_svg                                  as escudo_casa
-  ,cv.url_escudo_svg                                  as escudo_visitante
-  FROM jogos j
-  /*pesquisa time jogando em casa*/
-  LEFT JOIN pontuacao pc    
-  ON j.rodada = pc.rodada and j.time_casa = pc.time
-  /*pesquisa time jogando com visitante*/
-  LEFT JOIN pontuacao pv    
-  ON j.rodada = pv.rodada and j.time_visitante = pv.time
-  /*pesquisa escudo e estadio do time casa*/
-  LEFT JOIN cadastro cc    
-  ON j.time_casa = cc.nome 
-  /*pesquisa escudo time visitante*/
-  LEFT JOIN cadastro cv    
-  ON j.time_visitante = cv.nome
-  WHERE j.rodada <= 35
-  ORDER BY 2,3 asc
-  ";
+  $sql = "SELECT j.*
+,cc.url_escudo_svg as escudo_casa
+,cv.url_escudo_svg as escudo_visitante
+,cc.foto_perfil as foto_perfil_casa
+,cv.foto_perfil as foto_perfil_visitante
+FROM ligaso42_cartola_homologacao.jogos j
+left join cadastro cc
+on j.time_casa = cc.nome 
+left join cadastro cv
+on j.time_visitante = cv.nome
+where id_jogo = 1";
   $jogos = find_all($sql);
 }
 
