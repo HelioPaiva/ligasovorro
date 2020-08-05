@@ -11,10 +11,10 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="index.php">Classificação</a></li>
-          <li><a href="jogos.php">Jogos</a></li>
-          <li><a href="paraciais.php">Parciais</a></li>
           <li><a href="regulamento.php">Regulamento</a></li>
           <li><a href="premiacao.php">Premiação</a></li>
+          <!--<li><a href="jogos.php">Jogos</a></li>
+          <li><a href="paraciais.php">Parciais</a></li>-->
         </ul>
       </div>
     </div>

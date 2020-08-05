@@ -19,7 +19,7 @@ $pontosTotal = $rodada * 3
 
   </style>
 </head>
-<body style="background-color: #FFFFFF; padding-top: 10px;">
+<body style="background-color: #FFFFFF; padding-top: 50px;">
   <?php  include 'menu.php'; ?>
 
   <?php $total = ($cadastro['total'] * 50); ?>
