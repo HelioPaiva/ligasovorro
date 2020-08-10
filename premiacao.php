@@ -67,10 +67,11 @@
                $total = ($cadastro['total'] * 50); 
             ?>
             <label>Total Arrecadado:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$ &nbsp; </label><span><?php echo number_format($total,'2',',','.'); ?></span> </br></br></br>
-            <label>1º Colocado Liga Sovorro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format(($total * 0.75),'2','.',','); ?></span> </br>
-            <label>2º Colocado Liga Sovorro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format(($total * 0.15),'2','.',','); ?></span></br>
-            <label>3º Colocado Liga Sovorro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format(($total * 0.05),'2','.',','); ?></span></br>
-            <label>1º Colocado Liga Cartola:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format(($total * 0.05),'2','.',','); ?></span></br>
+            <label>1º Colocado Liga Sovorro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format((($total - 350) * 0.75),'2','.',','); ?></span> </br>
+            <label>2º Colocado Liga Sovorro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format((($total - 350) * 0.15),'2','.',','); ?></span></br>
+            <label>3º Colocado Liga Sovorro:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format((($total - 350) * 0.05),'2','.',','); ?></span></br>
+            <label>1º Colocado Liga Cartola:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo number_format((($total - 350) * 0.05),'2','.',','); ?></span></br>
+            <label>1º Colocado da Rodada:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   R$&nbsp; </label><span><?php echo '10,00' ?></span></br>
         </div>
     </div>
 </div>

@@ -3,9 +3,9 @@
 /**Acentuação*/
 //header('Content-Type: text/html; charset=utf-8');
 /** O nome do banco de dados*/
-define('DB_NAME', 'ligaso42_cartola_homologacao');
+define('DB_NAME', 'ligaso42_cartola');
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'ligaso42_car_hom');
+define('DB_USER', 'ligaso42_cartola');
 /** Senha do banco de dados MySQL */
 define('DB_PASSWORD', 'cartola@2020');
 /** nome do host do MySQL */

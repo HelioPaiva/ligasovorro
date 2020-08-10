@@ -1,10 +1,6 @@
 <?php
 require_once('functions-cadastro.php');
 index();
-valorPremio();
-$valor = count($cadastros);
-$rodada = 1;
-$pontosTotal = $rodada * 3
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,12 +17,6 @@ $pontosTotal = $rodada * 3
 </head>
 <body style="background-color: #FFFFFF; padding-top: 50px;">
   <?php  include 'menu.php'; ?>
-
-  <?php $total = ($cadastro['total'] * 50); ?>
-  <center>
-    <label>Total Arrecadado: R$ <?php echo number_format($total,'2',',','.'); ?></label>
-  </center>
-
   <div class="table-responsive">
     <table class="table">
       <thead>

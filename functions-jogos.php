@@ -8,7 +8,13 @@ $jogo = null;
 //seleciona todos os registros
 function index() {
   global $jogos;
-  $sql = "SELECT j.id_jogo
+  $sql = "
+  select cons_parcial.*
+,parcial_casa.parcial as parcila_casa
+,parcial_visitante.parcial as parcila_visitante
+from
+(
+SELECT j.id_jogo
   ,j.rodada
   ,j.time_casa
   ,j.time_visitante
@@ -26,6 +32,8 @@ function index() {
   when pc.pontos < pv.pontos then pc.pontos else pv.pontos end          as pontos_perdedor
   ,cc.url_escudo_svg                                  as escudo_casa
   ,cv.url_escudo_svg                                  as escudo_visitante
+  ,cc.time_id                     as time_id_casa
+  ,cv.time_id                    as time_id_visitante
   FROM jogos j
   /*pesquisa time jogando em casa*/
   LEFT JOIN pontuacao pc    
@@ -40,9 +48,43 @@ function index() {
   LEFT JOIN cadastro cv    
   ON j.time_visitante = cv.nome
   WHERE j.rodada <= 35
-  ORDER BY 2,3 asc
-  ";
-  $jogos = find_all($sql);
+  ) cons_parcial
+  LEFT JOIN
+  (
+        SELECT te.rodada
+        ,te.id_time
+        ,sum(pa.pontos) as parcial  
+        FROM api_time_escalado te
+        LEFT JOIN
+        (
+        SELECT * 
+        FROM ligaso42_cartola.api_parciais
+        ) pa
+        ON te.rodada = pa.rodada and te.atleta_id = pa.atleta_id
+        where pa.rodada = 1
+        group by te.rodada
+        ,te.id_time
+  ) parcial_casa
+  on cons_parcial.rodada = parcial_casa.rodada and cons_parcial.time_id_casa = parcial_casa.id_time
+  LEFT JOIN
+  (
+        SELECT te.rodada
+        ,te.id_time
+        ,sum(pa.pontos) as parcial  
+        FROM api_time_escalado te
+        LEFT JOIN
+        (
+        SELECT * 
+        FROM ligaso42_cartola.api_parciais
+        ) pa
+        ON te.rodada = pa.rodada and te.atleta_id = pa.atleta_id
+        where pa.rodada = 1
+        group by te.rodada
+        ,te.id_time
+  ) parcial_visitante
+  on cons_parcial.rodada = parcial_visitante.rodada and cons_parcial.time_id_visitante = parcial_visitante.id_time
+  ORDER BY 2,3 asc ";
+  $jogos = consulta_todos($sql);
 }
 
 function quarta() {

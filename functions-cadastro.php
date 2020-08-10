@@ -1,6 +1,4 @@
 <?php
-
-//header('Content-Type: text/html; charset=utf-8');
 require_once('config.php');
 require_once(DBAPI);
 $cadastros = null;
@@ -207,108 +205,12 @@ function index() {
   AND p.pontos = m.pontos) total 
   GROUP  BY total.time) primeiro 
   ON consolidado.nome = primeiro.time 
-  ORDER  BY 6 DESC, 
-  7 DESC, 
-  8 ASC ";
-  $cadastros = find_all($sql);
-}
-
-function quadrangular() {
-  global $cadastros;
-  $sql = "SELECT DISTINCT c.*
-  ,case when c.cartola = 'Pekeno' then ((v.total_vitorias * 3) - 2) 
-  when c.time = 'E.C. MarkWillian F.C' then ((v.total_vitorias * 3) + 1) 
-  when isnull((v.total_vitorias * 3)) then 0 
-  else (v.total_vitorias * 3) end as pontos
-  /*,case when isnull((v.total_vitorias * 3)) then 0 else (v.total_vitorias * 3) end as pontos*/
-  ,case when isnull(pro.total_pontos_pro) then 0.00 else pro.total_pontos_pro end as pontos_pro
-  ,tabPontosContra.contra
-
-  FROM cadastro c
-  LEFT JOIN 
-  (SELECT time, sum(pontos) as total_pontos_pro FROM pontuacao where rodada in (37,38) group by time) pro
-  ON c.time = pro.time
-
-  LEFT JOIN
-  (
-  select tab.vencedor
-  ,count(tab.vencedor) as total_vitorias
-  from
-  (
-  SELECT j.*, pc.pontos as pontos_casa, pv.pontos as pontos_visitante,
-  case when isnull(pc.pontos) or isnull(pv.pontos) then null
-  when pc.pontos > pv.pontos then j.time_casa else j.time_visitante  end as vencedor
-  FROM jogos j
-  LEFT JOIN pontuacao pc
-  ON j.rodada = pc.rodada and j.time_casa = pc.time
-  LEFT JOIN pontuacao pv
-  ON j.rodada = pv.rodada and j.time_visitante = pv.time) tab
-  where tab.rodada in (37,38)
-  group by tab.vencedor
-  ) v
-  ON c.time = v.vencedor
-  /**************************************************************************/
-  LEFT JOIN
-
-  (select tabContra.vencedor        as time
-  ,sum(tabContra.ptsContra_1)  as contra
-  from
-  (
-  select tabContraVenc.vencedor
-  ,sum(tabContraVenc.pontos_contra_1) as ptsContra_1
-  from
-  (
-  SELECT 
-  case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos > pv.pontos then j.time_casa else j.time_visitante end     as vencedor
-  ,case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos < pv.pontos then pc.pontos else pv.pontos end        as pontos_contra_1
-  FROM jogos j
-  LEFT JOIN pontuacao pc    
-  ON j.rodada = pc.rodada and j.time_casa = pc.time
-  LEFT JOIN pontuacao pv    
-  ON j.rodada = pv.rodada and j.time_visitante = pv.time
-  LEFT JOIN cadastro cc    
-  ON j.time_casa = cc.time 
-  LEFT JOIN cadastro cv    
-  ON j.time_visitante = cv.time
-  where j.rodada in (37,38)
-) tabContraVenc
-group by tabContraVenc.vencedor
-
-UNION
-
-select tabContraPerd.perdedor
-,sum(tabContraPerd.pontos_contra_2) as ptsContra_1
-from
-(
-  SELECT 
-  case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos < pv.pontos then j.time_casa else j.time_visitante end     as perdedor
-  ,case when isnull(pc.pontos) or isnull(pv.pontos) then null 
-  when pc.pontos > pv.pontos then pc.pontos else pv.pontos end        as pontos_contra_2
-  FROM jogos j
-  LEFT JOIN pontuacao pc    
-  ON j.rodada = pc.rodada and j.time_casa = pc.time
-  LEFT JOIN pontuacao pv    
-  ON j.rodada = pv.rodada and j.time_visitante = pv.time
-  LEFT JOIN cadastro cc    
-  ON j.time_casa = cc.time 
-  LEFT JOIN cadastro cv    
-  ON j.time_visitante = cv.time
-  where j.rodada in (37,38) 
-) tabContraPerd
-group by tabContraPerd.perdedor
-) tabContra
-group by tabContra.vencedor) tabPontosContra
-ON c.time = tabPontosContra.time
-where c.cartola <> 'Andre</br>coelho' and c.cartola <> 'Fabricio</br>Souza' and c.cartola <> 'Wendel</br>Felipe' and c.cartola <> 'Guilherme</br>Oliveira'
-order by 9 desc, 1 asc";
-$cadastros = find_all($sql);
+  ORDER  BY 7 DESC, 8 DESC, 9 ASC";
+  $cadastros = consulta_todos($sql);
 }
 
 function valorPremio() {
   global $cadastro;
   $sql = 'select count(1) as total from cadastro where pago = 1';
-    $cadastro = find($sql, 1); //O paramentro 1 é utlizado apenas para bater com a funcção que pede dois parametros
+    $cadastro = consulta_registro($sql, 1); //O paramentro 1 é utlizado apenas para bater com a funcção que pede dois parametros
   }
